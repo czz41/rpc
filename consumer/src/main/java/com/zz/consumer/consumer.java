@@ -8,7 +8,8 @@ public class consumer {
         User user=new User();
         user.setName("zz");
         //TTDO 需要改造成真正可以调用的userService
-        UserService userService=null;
+        //这里现在使用的是静态代理
+        UserService userService=new UserServiceProxy();
         User result=userService.getUser(user);
         if(result==null)
         {

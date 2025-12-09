@@ -1,6 +1,8 @@
 package com.zz.common.model;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     private String name;
     public void setName(String name) {
         this.name = name;

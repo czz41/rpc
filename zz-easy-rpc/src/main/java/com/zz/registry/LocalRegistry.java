@@ -4,14 +4,14 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class LocalRegistry {
-    private static final Map<String,Object> registry=new ConcurrentHashMap<>();
+    private static final Map<String,Class<?>> registry=new ConcurrentHashMap<>();
 
-    public static void registry(String name,Object obj)
+    public static void registry(String name,Class<?> clazz)
     {
-        registry.put(name, obj);
+        registry.put(name, clazz);
     }
 
-    public static Object get(String name)
+    public static Class<?> get(String name)
     {
         return registry.get(name);
     }
