@@ -9,4 +9,8 @@ public class UserServiceImpl implements UserService {
         System.out.println("正在provider中执行getUser()");
         return user;
     }
+    @Override
+    public String getMessage(){
+        return "hello rpc";
+    }
 }

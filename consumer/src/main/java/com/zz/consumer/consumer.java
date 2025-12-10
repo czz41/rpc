@@ -1,5 +1,6 @@
 package com.zz.consumer;
 
+import com.zz.Proxy.ServiceProxyFactory;
 import com.zz.common.model.User;
 import com.zz.common.service.UserService;
 
@@ -9,7 +10,7 @@ public class consumer {
         user.setName("zz");
         //TTDO 需要改造成真正可以调用的userService
         //这里现在使用的是静态代理
-        UserService userService=new UserServiceProxy();
+        UserService userService= ServiceProxyFactory.getProxy(UserService.class);
         User result=userService.getUser(user);
         if(result==null)
         {
@@ -17,6 +18,7 @@ public class consumer {
         }
         else
         {
+            System.out.println("调用了在Provider中的userService的实现类："+userService.getMessage());
             System.out.println("rpc调用成功"+result.getName());
         }
     }
